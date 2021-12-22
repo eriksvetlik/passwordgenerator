@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowerCharacters = [
+var lower = [
   "a",
   "b",
   "c",
@@ -28,7 +28,7 @@ var lowerCharacters = [
   "y",
   "z",
 ];
-var upperCharacters = [
+var upper = [
   "A",
   "B",
   "C",
@@ -58,8 +58,8 @@ var upperCharacters = [
 ];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
-var characterArray = [];
-var userPassword = "";
+var passwordArray = [];
+var password = "";
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -67,8 +67,8 @@ generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
+  var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
@@ -83,29 +83,37 @@ function generatePassword() {
     console.log("lengthChoice:", lengthChoice);
   }
 
-  // the user confirms whether they'd like to include lower characters
+  // the user confirms whether they'd like to include lower characters / if yes, the lower array is added to passwordArray
   var lowerChoice = confirm("Include lower characters?");
-  if (lowerCharacters) {
-    characterArray = characterArray.concat(lowerCharacters);
+  if (lowerChoice) {
+    passwordArray = passwordArray.concat(lower);
     console.log("lowerChoice:", lowerChoice);
-    console.log(characterArray);
+    console.log(passwordArray);
   }
 
-  // the user confirms whether they'd like to include upper characters
+  // the user confirms whether they'd like to include upper characters / if yes, the upper array is added to passwordArray
   var upperChoice = confirm("Include upper characters?");
-  if (upperCharacters) {
-    characterArray = characterArray.concat(upperCharacters);
+  if (upperChoice) {
+    passwordArray = passwordArray.concat(upper);
     console.log("upperChoice:", upperChoice);
-    console.log(characterArray);
+    console.log(passwordArray);
   }
 
-  // the user confirms whether they'd like to include numbers
+  // the user confirms whether they'd like to include numbers / if yes, the lower array is numbers to passwordArray
   var numberChoice = confirm("Include numbers?");
-  console.log("numberChoice:", numberChoice);
+  if (numberChoice) {
+    passwordArray = passwordArray.concat(numbers);
+    console.log("numberChoice:", numberChoice);
+    console.log(passwordArray);
+  }
 
-  // the user confirms whether they'd like to special characters
+  // the user confirms whether they'd like to special characters / if yes, the lower array is special to passwordArray
   var specialChoice = confirm("Include special characters?");
-  console.log("specialChoice:", specialChoice);
+  if (specialChoice) {
+    passwordArray = passwordArray.concat(special);
+    console.log("specialChoice:", specialChoice);
+    console.log(passwordArray);
+  }
 
   // if the user does not select a character choice, they'll need to start over
   if (!lowerChoice && !upperChoice && !numberChoice && !specialChoice) {
@@ -114,23 +122,13 @@ function generatePassword() {
     return;
   }
 
-  // Randomly generate password string from choices
-
-  // array of all chosen characters, concat?
-  // choose from the all options arr number of chars required(length prompt)
-  // For loop, run based on length prompt
-
+  // a random character will be chosen from passwordArray for each instance variable "i" is less then the lengthChoice
   for (var i = 0; i < lengthChoice; i++) {
-    userPassword +=
-      characterArray[Math.floor(Math.random() * characterArray.length)];
+    password += passwordArray[Math.floor(Math.random() * passwordArray.length)];
   }
 
-  // Math.random choose index postions from array
-  // var foodItems = ["Bannana", "Apple", "Orange"];
-  // var theFood = foodItems[Math.floor(Math.random() * foodItems.length)];
-  // grab from chosen array, add to password array
-  // convert array to string
-  // return string
-  // alert with password to the screen
-  // display password in text box- write to page
+  //the password is converted to a string and the value is returned to the writePassword function
+  password = password.toString();
+  console.log(password);
+  return password;
 }
