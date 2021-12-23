@@ -144,9 +144,9 @@ function generatePassword() {
     console.log(passwordArray);
   }
 
-  // if the user does not select a character choice, they'll need to start over
+  // if the user does not select a character choice, they'll need to from the beginning
   if (!lowerChoice && !upperChoice && !numberChoice && !specialChoice) {
-    confirm("At least one character option must be selected.");
+    confirm("At least one character type must be selected.");
     generatePassword();
     return;
   }
