@@ -108,43 +108,33 @@ function generatePassword() {
     confirm("Length must be between 8-128 characters.");
     generatePassword();
     return;
-  } else {
-    console.log("lengthChoice:", lengthChoice);
   }
 
   // the user confirms whether they'd like to include lower characters / if yes, the lower array is added to passwordArray
   var lowerChoice = confirm("Include lower characters?");
   if (lowerChoice) {
     passwordArray = passwordArray.concat(lower);
-    console.log("lowerChoice:", lowerChoice);
-    console.log(passwordArray);
   }
 
   // the user confirms whether they'd like to include upper characters / if yes, the upper array is added to passwordArray
   var upperChoice = confirm("Include upper characters?");
   if (upperChoice) {
     passwordArray = passwordArray.concat(upper);
-    console.log("upperChoice:", upperChoice);
-    console.log(passwordArray);
   }
 
-  // the user confirms whether they'd like to include numbers / if yes, the lower array is numbers to passwordArray
+  // the user confirms whether they'd like to include numbers / if yes, the numbers array is added to passwordArray
   var numberChoice = confirm("Include numbers?");
   if (numberChoice) {
     passwordArray = passwordArray.concat(numbers);
-    console.log("numberChoice:", numberChoice);
-    console.log(passwordArray);
   }
 
-  // the user confirms whether they'd like to special characters / if yes, the lower array is special to passwordArray
+  // the user confirms whether they'd like to include special characters / if yes, the special array is added to passwordArray
   var specialChoice = confirm("Include special characters?");
   if (specialChoice) {
     passwordArray = passwordArray.concat(special);
-    console.log("specialChoice:", specialChoice);
-    console.log(passwordArray);
   }
 
-  // if the user does not select a character choice, they'll need to from the beginning
+  // if the user does not select a character choice, they'll need to start over
   if (!lowerChoice && !upperChoice && !numberChoice && !specialChoice) {
     confirm("At least one character type must be selected.");
     generatePassword();
@@ -158,6 +148,5 @@ function generatePassword() {
 
   //the password is converted to a string and the value is returned to the writePassword function
   password = password.toString();
-  console.log(password);
   return password;
 }
