@@ -57,7 +57,34 @@ var upper = [
   "Z",
 ];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+var special = [
+  "!",
+  "#",
+  "$",
+  "%",
+  "&",
+  "'",
+  "(",
+  ")",
+  "*",
+  "+",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "^",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
 var passwordArray = [];
 
 // Add event listener to generate button
@@ -72,7 +99,8 @@ function writePassword() {
 }
 
 function generatePassword() {
-  var password = "";
+  password = "";
+  passwordArray = [];
 
   // prompt to ask the user how long the password should be
   var lengthChoice = prompt("Please choose a length between 8-128 characters.");
