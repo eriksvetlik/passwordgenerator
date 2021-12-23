@@ -59,7 +59,6 @@ var upper = [
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 var passwordArray = [];
-var password = "";
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -73,6 +72,8 @@ function writePassword() {
 }
 
 function generatePassword() {
+  var password = "";
+
   // prompt to ask the user how long the password should be
   var lengthChoice = prompt("Please choose a length between 8-128 characters.");
   if (lengthChoice < 8 || lengthChoice > 128) {
