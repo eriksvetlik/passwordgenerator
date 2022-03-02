@@ -8,6 +8,8 @@ Once the user chooses the length of their password, they're meet with additional
 
 After the selections, a password is generated with the desired length and character options, and displayed on the page.
 
+HTML | CSS | JavaScript
+
 # Screenshot
 
 ![Screenshot of webpage](./images/homework-readme.png)
